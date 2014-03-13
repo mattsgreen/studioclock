@@ -1,0 +1,27 @@
+html
+  head
+    link(rel='stylesheet', type='text/css', href='/assets/talkback.css')
+  body
+    ul#box
+        if stateMachine.box1 
+            li#box1(class=stateMachine.box1.state === "on" ? "on" : "")
+                span #{stateMachine.box1.text}
+        if stateMachine.box2 
+            li#box2(class=stateMachine.box2.state === "on" ? "on" : "")
+                span #{stateMachine.box2.text}
+        if stateMachine.box3 
+            li#box3(class=stateMachine.box3.state === "on" ? "on" : "")
+                span #{stateMachine.box3.text}
+        if stateMachine.box4 
+            li#box4(class=stateMachine.box4.state === "on" ? "on" : "")
+                span #{stateMachine.box4.text}
+    div#left
+        div#messageFrame
+            div#messageWindow
+        input#messageInput(type="text", disabled="true")
+        div#username
+            span.loggedin Logged in as: 
+    div#right
+        h1 Station Time
+        h2#time hh:mm:ss
+    script(data-main='/js/talkback', src='/js/vendor/require.js')
